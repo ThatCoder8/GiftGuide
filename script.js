@@ -25,5 +25,27 @@ function recommendGift() {
         giftResult = `Recommended gift for a ${age}-year-old ${gender}: ${giftSuggestions[gender][age]}`;
     }
 
+    // Display the gift result
     document.getElementById('giftResult').innerText = giftResult;
+}
+
+function submitQuiz() {
+    // Get quiz responses
+    const favoriteGift = document.getElementById('favorite-gift').value;
+    const ageAtReceived = parseInt(document.getElementById('age-at-received').value);
+
+    // Update the gift suggestions with quiz responses
+    const gender = document.getElementById('gender').value;
+    const giftSuggestions = {
+        male: {
+            [ageAtReceived]: favoriteGift
+        },
+        female: {
+            [ageAtReceived]: favoriteGift
+        }
+    };
+
+    // Update the gift guide result based on the quiz responses
+    recommendGift();
+    // Optionally, you can store or use the quiz responses elsewhere in your application
 }
